@@ -4,4 +4,7 @@
     <string name="button_ok">OK</string>
     <string name="search_book_title">Search</string>
     <string name="search_hint">Search book</string>
+    <string name="action_about">About</string>
+    <string name="action_terms">Terms and Conditions</string>
+    <string name="hello_blank_fragment">Book catalog by Bogdan Diakonenko v0.3</string>
 </resources>
