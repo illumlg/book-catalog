@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Book catalog</string>
+    <string name="edit_name">Enter your name</string>
+    <string name="button_ok">OK</string>
+    <string name="search_book_title">Search</string>
+    <string name="search_hint">Search book</string>
+</resources>
