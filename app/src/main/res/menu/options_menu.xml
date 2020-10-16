@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_about"
-        android:title="@string/action_about"
+    <item android:id="@+id/about_fragment"
+        android:title="@string/about_fragment_title"
         app:showAsAction="never" />
-    <item android:id="@+id/action_terms"
-        android:title="@string/action_terms"
+    <item android:id="@+id/terms_fragment"
+        android:title="@string/terms_fragment_title"
         app:showAsAction="never" />
 </menu>

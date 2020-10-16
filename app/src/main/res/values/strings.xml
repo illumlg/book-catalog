@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">Book catalog</string>
     <string name="edit_name">Enter your name</string>
     <string name="button_ok">OK</string>
     <string name="search_book_title">Search</string>
     <string name="search_hint">Search book</string>
-    <string name="action_about">About</string>
-    <string name="action_terms">Terms and Conditions</string>
-    <string name="hello_blank_fragment">Book catalog by Bogdan Diakonenko v0.3</string>
+    <string name="app_title">Book catalog</string>
+    <string name="about_fragment_title">About</string>
+    <string name="terms_fragment_title">Terms and Conditions</string>
+    <string name="main_fragment">\nHello!</string>
+    <string name="about_fragment">\nBook catalog v0.3\nby Bogdan Diakonenko</string>
+    <string name="terms_fragment">\nAll rights reserved\n© 2020</string>
 </resources>
