@@ -6,7 +6,9 @@
     <string name="app_title">Book catalog</string>
     <string name="about_fragment_title">About</string>
     <string name="terms_fragment_title">Terms and Conditions</string>
-    <string name="main_fragment">\nHello!</string>
-    <string name="about_fragment">\nBook catalog v0.3\nby Bogdan Diakonenko</string>
-    <string name="terms_fragment">\nAll rights reserved\n© 2020</string>
+    <string name="main_fragment">Hello!</string>
+    <string name="about_fragment">Book catalog v0.3\nby Bogdan Diakonenko</string>
+    <string name="terms_fragment">All rights reserved\n© 2020</string>
+    <string name="share_fragment">Hi, I am the text to share with!</string>
+    <string name="share_fragment_title">Share</string>
 </resources>

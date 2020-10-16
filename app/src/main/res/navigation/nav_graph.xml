@@ -20,4 +20,9 @@
         android:name="com.illumlg.lab1.MainFragment"
         android:label="@string/app_title"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/share_fragment"
+        android:name="com.illumlg.lab1.ShareFragment"
+        android:label="@string/app_title"
+        tools:layout="@layout/fragment_share" />
 </navigation>
