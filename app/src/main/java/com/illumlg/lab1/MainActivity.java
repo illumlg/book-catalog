@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,6 +25,8 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.android.material.navigation.NavigationView;
+
 public class MainActivity extends AppCompatActivity {
 
 //    public static final String EXTRA_USER_NAME = "com.example.myfirstapp.USERNAME";
@@ -34,11 +37,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         NavController navController
                 = Navigation.findNavController(this, R.id.navHostFragment);
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
         AppBarConfiguration appBarConfiguration
-                = new AppBarConfiguration.Builder(navController.getGraph()).build();
+                = new AppBarConfiguration.Builder(navController.getGraph())
+                .setOpenableLayout(drawerLayout).build();
         Toolbar appbar = findViewById(R.id.appbar);
         setSupportActionBar(appbar);
         NavigationUI.setupWithNavController(appbar, navController, appBarConfiguration);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
 //    @Override

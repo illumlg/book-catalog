@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/about_fragment"
+        android:title="@string/about_fragment_title" />
+    <item android:id="@+id/terms_fragment"
+        android:title="@string/terms_fragment_title" />
+    <item android:id="@+id/share_fragment"
+        android:title="@string/share_fragment_title" />
+</menu>
