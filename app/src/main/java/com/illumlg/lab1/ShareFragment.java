@@ -19,6 +19,8 @@ import android.view.ViewGroup;
 
 import java.util.Objects;
 
+import timber.log.Timber;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ShareFragment#newInstance} factory method to
@@ -60,6 +62,7 @@ public class ShareFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Timber.i("ShareFragment onCreate called");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -94,5 +97,35 @@ public class ShareFragment extends Fragment {
                 .setText(getString(R.string.share_fragment))
                 .setType("text/plain")
                 .getIntent();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Timber.i("ShareFragment onStart called");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Timber.i("ShareFragment onResume called");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Timber.i("ShareFragment onPause called");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Timber.i("ShareFragment onStop called");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Timber.i("ShareFragment onDestroy called");
     }
 }

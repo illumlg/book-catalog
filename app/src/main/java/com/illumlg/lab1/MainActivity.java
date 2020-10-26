@@ -27,13 +27,17 @@ import android.widget.ToggleButton;
 
 import com.google.android.material.navigation.NavigationView;
 
+import timber.log.Timber;
+
 public class MainActivity extends AppCompatActivity {
 
 //    public static final String EXTRA_USER_NAME = "com.example.myfirstapp.USERNAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        new BookCatalogTimer(this.getLifecycle());
         super.onCreate(savedInstanceState);
+        Timber.i("MainActivity onCreate called");
         setContentView(R.layout.activity_main);
         NavController navController
                 = Navigation.findNavController(this, R.id.navHostFragment);
@@ -48,7 +52,43 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-//    @Override
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Timber.i("MainActivity onStart called");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Timber.i("MainActivity onResume called");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Timber.i("MainActivity onPause called");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Timber.i("MainActivity onStop called");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Timber.i("MainActivity onDestroy called");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Timber.i("MainActivity onRestart called");
+    }
+
+    //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        getMenuInflater().inflate(R.menu.options_menu, menu);
 //        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);

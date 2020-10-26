@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import timber.log.Timber;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link AboutFragment#newInstance} factory method to
@@ -48,6 +50,7 @@ public class AboutFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Timber.i("AboutFragment onCreate called");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -59,5 +62,35 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_about, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Timber.i("AboutFragment onStart called");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Timber.i("AboutFragment onResume called");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Timber.i("AboutFragment onPause called");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Timber.i("AboutFragment onStop called");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Timber.i("AboutFragment onDestroy called");
     }
 }

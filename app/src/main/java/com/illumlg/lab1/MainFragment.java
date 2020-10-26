@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import timber.log.Timber;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link MainFragment#newInstance} factory method to
@@ -57,6 +59,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Timber.i("MainFragment onCreate called");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -86,5 +89,35 @@ public class MainFragment extends Fragment {
         NavController navController = Navigation.findNavController(this.requireActivity(), R.id.navHostFragment);
         return NavigationUI.onNavDestinationSelected(item, navController)
                 || super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Timber.i("MainFragment onStart called");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Timber.i("MainFragment onResume called");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Timber.i("MainFragment onPause called");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Timber.i("MainFragment onStop called");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Timber.i("MainFragment onDestroy called");
     }
 }

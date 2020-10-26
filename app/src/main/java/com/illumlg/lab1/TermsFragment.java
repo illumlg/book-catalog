@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import timber.log.Timber;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link TermsFragment#newInstance} factory method to
@@ -49,6 +51,7 @@ public class TermsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Timber.i("TermsFragment onCreate called");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -60,5 +63,35 @@ public class TermsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_terms, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Timber.i("TermsFragment onStart called");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Timber.i("TermsFragment onResume called");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Timber.i("TermsFragment onPause called");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Timber.i("TermsFragment onStop called");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Timber.i("TermsFragment onDestroy called");
     }
 }
