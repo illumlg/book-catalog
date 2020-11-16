@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/terms_fragment"
-        android:name="com.illumlg.lab1.TermsFragment"
+        android:name="com.illumlg.book_catalog.TermsFragment"
         android:label="@string/terms_fragment_title"
         tools:layout="@layout/fragment_terms" />
     <fragment
         android:id="@+id/about_fragment"
-        android:name="com.illumlg.lab1.AboutFragment"
+        android:name="com.illumlg.book_catalog.AboutFragment"
         android:label="@string/about_fragment_title"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/main_fragment"
-        android:name="com.illumlg.lab1.MainFragment"
+        android:name="com.illumlg.book_catalog.MainFragment"
         android:label="@string/app_title"
         tools:layout="@layout/fragment_main" />
     <fragment
         android:id="@+id/share_fragment"
-        android:name="com.illumlg.lab1.ShareFragment"
+        android:name="com.illumlg.book_catalog.ShareFragment"
         android:label="@string/share_fragment_title"
         tools:layout="@layout/fragment_share" />
 </navigation>

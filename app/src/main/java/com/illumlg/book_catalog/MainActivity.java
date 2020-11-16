@@ -1,31 +1,20 @@
-package com.illumlg.lab1;
+package com.illumlg.book_catalog;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.room.Room;
 
-import android.app.SearchManager;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.google.android.material.navigation.NavigationView;
+import com.illumlg.book_catalog.persistence.model.Book;
+import com.illumlg.book_catalog.persistence.db.BookCatalogDatabase;
 
 import timber.log.Timber;
 
@@ -35,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        new BookCatalogTimer(this.getLifecycle());
         super.onCreate(savedInstanceState);
         Timber.i("MainActivity onCreate called");
         setContentView(R.layout.activity_main);
@@ -50,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(appbar, navController, appBarConfiguration);
         NavigationView navigationView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(navigationView, navController);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        //outState.putInt()
+        super.onSaveInstanceState(outState);
     }
 
     @Override

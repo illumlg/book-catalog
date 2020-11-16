@@ -1,4 +1,4 @@
-package com.illumlg.lab1;
+package com.illumlg.book_catalog;
 
 import android.app.Application;
 

@@ -1,30 +1,20 @@
-package com.illumlg.lab1;
+package com.illumlg.book_catalog;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.app.SearchManager;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.Switch;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
-public class BookSearchResultActivity extends AppCompatActivity {
+public class GreetActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_search_result);
+        setContentView(R.layout.activity_greet);
 //        setSupportActionBar((Toolbar) findViewById(R.id.appbar));
 //        Intent intent = getIntent();
-//        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-//            String query = intent.getStringExtra(SearchManager.QUERY);
-//            search(query);
-//        }
+//        String username = intent.getStringExtra(MainActivity.EXTRA_USER_NAME);
+//        TextView textView = findViewById(R.id.greetTextView);
+//        textView.setText(String.format("Hello, %s!",username));
     }
 
 //    public void button(View view) {
@@ -69,9 +59,5 @@ public class BookSearchResultActivity extends AppCompatActivity {
 //        else
 //            Toast.makeText(getApplicationContext(), "switch off", Toast.LENGTH_SHORT)
 //                    .show();
-//    }
-//
-//    private void search(String query) {
-//
 //    }
 }

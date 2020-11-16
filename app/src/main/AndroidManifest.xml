@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.illumlg.lab1">
+    package="com.illumlg.book_catalog">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".BookCatalogApplication"
@@ -10,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AddBook"></activity>
         <activity android:name=".GreetActivity" />
         <activity android:name=".BookSearchResultActivity">
             <meta-data
@@ -21,9 +24,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
-<!--            <meta-data-->
-<!--                android:name="android.app.default_searchable"-->
-<!--                android:value=".BookSearchResultActivity" />-->
+
+            <!-- <meta-data -->
+            <!-- android:name="android.app.default_searchable" -->
+            <!-- android:value=".BookSearchResultActivity" /> -->
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
