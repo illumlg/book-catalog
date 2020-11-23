@@ -6,6 +6,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.app.ShareCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,7 +16,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.illumlg.book_catalog.persistence.model.Book;
+
+import java.util.List;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 import timber.log.Timber;
 
 /**
@@ -69,7 +85,17 @@ public class ShareFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.fragment_share, container, false);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_share, container, false);
+        RecyclerView recyclerView = root.findViewById(R.id.recyclerViewShare);
+        final BookListAdapter adapter = new BookListAdapter(new BookListAdapter.BookDiff());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        BookApiViewModel viewModel = new ViewModelProvider(this).get(BookApiViewModel.class);
+        viewModel.getBooks().observe(this.getViewLifecycleOwner(), adapter::submitList);
+        Glide.with(root)
+                .load("https://assets.entrepreneur.com/content/3x2/2000/20191219170611-GettyImages-1152794789.jpeg")
+                .apply(new RequestOptions().centerCrop()).into((ImageView) root.findViewById(R.id.imageView2));
+        return root;
     }
 
     @Override
