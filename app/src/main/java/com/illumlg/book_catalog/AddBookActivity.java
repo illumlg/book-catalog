@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 import com.illumlg.book_catalog.R;
 
-public class AddBook extends AppCompatActivity {
+public class AddBookActivity extends AppCompatActivity {
 
     public static String EXTRA_REPLY_NAME;
     public static String EXTRA_REPLY_AUTHOR;

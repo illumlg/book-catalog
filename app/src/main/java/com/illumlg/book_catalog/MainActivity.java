@@ -9,6 +9,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.room.Room;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 
 import android.os.Bundle;
 
@@ -21,7 +23,7 @@ import timber.log.Timber;
 public class MainActivity extends AppCompatActivity {
 
 //    public static final String EXTRA_USER_NAME = "com.example.myfirstapp.USERNAME";
-
+    private boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        if(flag) {
+            WorkManager.getInstance(this.getApplicationContext())
+                    .enqueue(new OneTimeWorkRequest.Builder(ApiWorker.class).build());
+            flag = false;
+        }
+        else
+            flag = true;
         Timber.i("MainActivity onStart called");
     }
 

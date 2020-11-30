@@ -5,7 +5,7 @@
     <data>
         <variable
             name="counterVM"
-            type="com.illumlg.book_catalog.CounterViewModel" />
+            type="com.illumlg.book_catalog.viewmodel.CounterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

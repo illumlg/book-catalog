@@ -18,7 +18,7 @@ import java.util.concurrent.Executors;
 public abstract class BookCatalogDatabase extends RoomDatabase {
     public abstract BookDao bookDao();
     private static volatile BookCatalogDatabase instance;
-    private static ExecutorService dbExecutor = Executors.newFixedThreadPool(4);
+    private static final ExecutorService dbExecutor = Executors.newFixedThreadPool(4);
 
     public static ExecutorService getDbExecutor() {
         return dbExecutor;
@@ -28,25 +28,24 @@ public abstract class BookCatalogDatabase extends RoomDatabase {
         if(instance == null)
             synchronized (BookCatalogDatabase.class) {
                 if(instance == null)
-                    instance = Room.databaseBuilder(
+                    instance = Room.inMemoryDatabaseBuilder(
                                     context.getApplicationContext(),
-                                    BookCatalogDatabase.class,
-                                    "book_database").addCallback(dbCallback).build();
+                                    BookCatalogDatabase.class).addCallback(dbCallback).build();
             }
         return instance;
     }
 
-    private static BookCatalogDatabase.Callback dbCallback = new RoomDatabase.Callback() {
+    private static final BookCatalogDatabase.Callback dbCallback = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
             dbExecutor.execute(() -> {
                 BookDao dao = instance.bookDao();
                 dao.deleteAll();
-                Book book = new Book("Harry Potter", "J.K. Rowling");
-                dao.insert(book);
-                book = new Book("The Lord of the Rings", "J.R.R. Tolkien");
-                dao.insert(book);
+//                Book book = new Book("Harry Potter", "J.K. Rowling");
+//                dao.insert(book);
+//                book = new Book("The Lord of the Rings", "J.R.R. Tolkien");
+//                dao.insert(book);
             });
         }
     };

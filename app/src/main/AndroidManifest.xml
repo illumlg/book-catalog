@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
-        <activity android:name=".AddBook"></activity>
+        <activity android:name=".AddBookActivity"></activity>
         <activity android:name=".GreetActivity" />
         <activity android:name=".BookSearchResultActivity">
             <meta-data

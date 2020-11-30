@@ -1,4 +1,4 @@
-package com.illumlg.book_catalog;
+package com.illumlg.book_catalog.viewmodel;
 
 import android.app.Application;
 
@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.illumlg.book_catalog.persistence.BookRepository;
+import com.illumlg.book_catalog.persistence.repository.BookRepository;
 import com.illumlg.book_catalog.persistence.model.Book;
 
 import java.util.List;

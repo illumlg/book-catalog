@@ -1,4 +1,4 @@
-package com.illumlg.book_catalog.persistence;
+package com.illumlg.book_catalog.persistence.repository;
 
 import android.app.Application;
 

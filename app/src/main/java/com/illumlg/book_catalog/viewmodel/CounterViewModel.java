@@ -1,4 +1,4 @@
-package com.illumlg.book_catalog;
+package com.illumlg.book_catalog.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;

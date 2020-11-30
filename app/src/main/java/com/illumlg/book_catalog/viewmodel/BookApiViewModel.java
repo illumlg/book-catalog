@@ -1,12 +1,12 @@
-package com.illumlg.book_catalog;
+package com.illumlg.book_catalog.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.illumlg.book_catalog.persistence.model.Book;
+import com.illumlg.book_catalog.network.BookApiService;
+import com.illumlg.book_catalog.network.BookDTO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -18,7 +18,7 @@ import retrofit2.converter.jackson.JacksonConverterFactory;
 
 public class BookApiViewModel extends ViewModel {
     private BookApiService service;
-    private MutableLiveData<List<Book>> books = new MutableLiveData<>();
+    private MutableLiveData<List<BookDTO>> books = new MutableLiveData<>();
 
     public BookApiViewModel() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -29,16 +29,16 @@ public class BookApiViewModel extends ViewModel {
         service = retrofit.create(BookApiService.class);
     }
 
-    public LiveData<List<Book>> getBooks() {
-        service.getBooks().enqueue(new Callback<List<Book>>() {
+    public LiveData<List<BookDTO>> getBooks() {
+        service.getBooks().enqueue(new Callback<List<BookDTO>>() {
             @Override
-            public void onResponse(Call<List<Book>> call, Response<List<Book>> response) {
+            public void onResponse(Call<List<BookDTO>> call, Response<List<BookDTO>> response) {
                 books.setValue(response.body());
             }
 
             @Override
-            public void onFailure(Call<List<Book>> call, Throwable t) {
-                System.out.println(t.toString());
+            public void onFailure(Call<List<BookDTO>> call, Throwable t) {
+                System.err.println(t.toString());
             }
         });
         return books;

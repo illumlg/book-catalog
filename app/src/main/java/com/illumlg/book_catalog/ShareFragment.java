@@ -21,15 +21,12 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.illumlg.book_catalog.persistence.model.Book;
+import com.illumlg.book_catalog.viewmodel.BookApiViewModel;
+import com.illumlg.book_catalog.viewmodel.BookViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 import timber.log.Timber;
 
 /**
@@ -90,8 +87,12 @@ public class ShareFragment extends Fragment {
         final BookListAdapter adapter = new BookListAdapter(new BookListAdapter.BookDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        BookApiViewModel viewModel = new ViewModelProvider(this).get(BookApiViewModel.class);
-        viewModel.getBooks().observe(this.getViewLifecycleOwner(), adapter::submitList);
+        BookApiViewModel apiViewModel = new ViewModelProvider(this).get(BookApiViewModel.class);
+        BookViewModel bookViewModel = new ViewModelProvider(this).get(BookViewModel.class);
+        apiViewModel.getBooks()
+                .observe(this.getViewLifecycleOwner(), bookDTOS -> bookDTOS
+                        .forEach(bookDTO -> bookViewModel
+                                .insert(new Book(bookDTO.getName(), bookDTO.getAuthor()))));
         Glide.with(root)
                 .load("https://assets.entrepreneur.com/content/3x2/2000/20191219170611-GettyImages-1152794789.jpeg")
                 .apply(new RequestOptions().centerCrop()).into((ImageView) root.findViewById(R.id.imageView2));

@@ -1,9 +1,10 @@
 package com.illumlg.book_catalog.persistence.model;
 
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "books")
+@Entity(tableName = "books", indices = {@Index(value = {"name", "author"}, unique = true)})
 public class Book {
     @PrimaryKey(autoGenerate = true)
     private int id;

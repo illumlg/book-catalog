@@ -1,4 +1,4 @@
-package com.illumlg.book_catalog;
+package com.illumlg.book_catalog.network;
 
 import com.illumlg.book_catalog.persistence.model.Book;
 
@@ -10,5 +10,5 @@ import retrofit2.http.GET;
 public interface BookApiService {
 
     @GET("/book/list")
-    Call<List<Book>> getBooks();
+    Call<List<BookDTO>> getBooks();
 }
