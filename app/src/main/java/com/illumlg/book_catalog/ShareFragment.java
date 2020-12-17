@@ -93,9 +93,11 @@ public class ShareFragment extends Fragment {
                 .observe(this.getViewLifecycleOwner(), bookDTOS -> bookDTOS
                         .forEach(bookDTO -> bookViewModel
                                 .insert(new Book(bookDTO.getName(), bookDTO.getAuthor()))));
+        ImageView iv = (ImageView) root.findViewById(R.id.imageView2);
         Glide.with(root)
                 .load("https://assets.entrepreneur.com/content/3x2/2000/20191219170611-GettyImages-1152794789.jpeg")
-                .apply(new RequestOptions().centerCrop()).into((ImageView) root.findViewById(R.id.imageView2));
+                .apply(new RequestOptions().centerCrop()).into(iv);
+        iv.setContentDescription("Image of the book");
         return root;
     }
 

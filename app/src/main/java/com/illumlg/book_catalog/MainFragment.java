@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -24,6 +25,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.illumlg.book_catalog.databinding.FragmentMainBinding;
 import com.illumlg.book_catalog.persistence.model.Book;
 import com.illumlg.book_catalog.viewmodel.BookViewModel;
@@ -81,12 +83,12 @@ public class MainFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_BOOK_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Book word = new Book(data.getStringExtra(AddBookActivity.EXTRA_REPLY_NAME), data.getStringExtra(AddBookActivity.EXTRA_REPLY_AUTHOR));
+            Book word = new Book(data.getStringExtra("book name"), data.getStringExtra("book author"));
             viewModel.insert(word);
         } else {
             Toast.makeText(
                     requireActivity().getApplicationContext(),
-                    "Book not saves",
+                    "Book can't be saved",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -129,7 +131,7 @@ public class MainFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         viewModel.getBooks().observe(this.getViewLifecycleOwner(), adapter::submitList);
-        Button addBook = root.findViewById(R.id.button4);
+        FloatingActionButton addBook = root.findViewById(R.id.floatingActionButton4);
         addBook.setOnClickListener(view -> {
             Intent intent = new Intent(requireActivity(), AddBookActivity.class);
             startActivityForResult(intent, NEW_BOOK_ACTIVITY_REQUEST_CODE);

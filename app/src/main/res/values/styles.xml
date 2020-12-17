@@ -1,16 +1,40 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="actionBarTheme">@style/AppbarTheme</item>
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/primaryLightColor</item>
+        <item name="actionBarTheme">@style/AppbarThemeLight</item>
+        <item name="android:textViewStyle">@style/TextViewLight</item>
     </style>
 
-    <style name="AppbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:background">@color/colorPrimaryDark</item>
-        <item name="android:textColorPrimary">#FFFFFF</item>
+    <style name="AppThemeDark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primaryColorDark</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColorDark</item>
+        <item name="colorAccent">@color/primaryLightColorDark</item>
+        <item name="actionBarTheme">@style/AppbarThemeDark</item>
+        <item name="android:textViewStyle">@style/TextViewDark</item>
     </style>
 
+    <style name="AppbarThemeLight" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:background">@color/primaryDarkColor</item>
+        <item name="android:textColorPrimary">@color/primaryTextColorDark</item>
+        <item name="android:itemTextAppearance">@style/TextAppearance</item>
+    </style>
+
+    <style name="AppbarThemeDark" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:background">@color/primaryDarkColorDark</item>
+        <item name="android:textColorPrimary">@color/primaryTextColorDark</item>
+    </style>
+
+    <style name="TextViewDark" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/primaryTextColorDark</item>
+    </style>
+
+    <style name="TextViewLight" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/primaryTextViewColor</item>
+    </style>
+
+    <style name="TextAppearance" parent="android:Widget.Material.Light.PopupMenu.Overflow">
+        <item name="android:textColor">@color/primaryTextColorDark</item>
+    </style>
 </resources>

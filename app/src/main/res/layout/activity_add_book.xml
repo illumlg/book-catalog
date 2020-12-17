@@ -25,5 +25,7 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add" />
+        android:fontFamily="@font/architects_daughter"
+        android:text="Add"
+        android:textSize="@dimen/button_textSize" />
 </LinearLayout>

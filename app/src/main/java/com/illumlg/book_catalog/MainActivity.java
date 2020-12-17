@@ -1,7 +1,10 @@
 package com.illumlg.book_catalog;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -12,7 +15,12 @@ import androidx.room.Room;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.illumlg.book_catalog.persistence.model.Book;
@@ -27,7 +35,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        boolean check;
         Timber.i("MainActivity onCreate called");
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            setTheme(R.style.AppThemeDark);
+            check = true;
+        } else {
+            setTheme(R.style.AppThemeLight);
+            check = false;
+        }
         setContentView(R.layout.activity_main);
         NavController navController
                 = Navigation.findNavController(this, R.id.navHostFragment);
@@ -40,6 +56,17 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(appbar, navController, appBarConfiguration);
         NavigationView navigationView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(navigationView, navController);
+        RelativeLayout l = (RelativeLayout) navigationView.getMenu().getItem(0).getActionView();
+        SwitchCompat s = (SwitchCompat) l.getChildAt(0);
+        s.setOnClickListener((view) -> {
+            if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+            recreate();
+        });
+        s.setChecked(check);
     }
 
     @Override

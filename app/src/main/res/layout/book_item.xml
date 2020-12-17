@@ -15,9 +15,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
+            android:fontFamily="@font/architects_daughter"
             android:text="@{book.name}"
-            android:textColor="@android:color/primary_text_light"
-            android:textSize="18sp" />
+            android:textSize="@dimen/book_item_textSize" />
 
         <TextView
             android:id="@+id/bookAuthor"
@@ -25,9 +25,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_weight="1"
+            android:fontFamily="@font/architects_daughter"
             android:text="@{book.author}"
-            android:textColor="@android:color/primary_text_light"
-            android:textSize="18sp" />
+            android:textSize="@dimen/book_item_textSize" />
     
     </LinearLayout>
 </layout>
